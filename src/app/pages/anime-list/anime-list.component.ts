@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Subject } from 'rxjs';
 
 import { AnimeCardComponent } from '@app/features';
+import { SpinnerComponent } from '@app/shared/components';
 
 import { AnimeListStore } from './anime-list.store';
 import { AnimeListActionType } from './anime-list.config';
@@ -16,15 +17,18 @@ import { AnimeListAction } from './anime-list.models';
   styleUrls: ['./anime-list.component.scss'],
   imports: [
     CommonModule,
-    AnimeCardComponent
+    AnimeCardComponent,
+    SpinnerComponent
   ],
-  providers: [AnimeListStore]
+  providers: [AnimeListStore],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AnimeListComponent implements OnInit {
 
   private actionSubject = new Subject<AnimeListAction>();
 
   animeList$ = this.animeListStore.animeList$;
+  ready$ = this.animeListStore.ready$;
 
   constructor(
     private animeListStore: AnimeListStore

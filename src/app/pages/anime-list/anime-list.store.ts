@@ -16,10 +16,15 @@ export class AnimeListStore extends ComponentStore<AnimeListState> {
   }
 
   readonly animeList$: Observable<Anime[]> = this.select((state) => state.animeList);
+  readonly ready$: Observable<boolean> = this.select((state) => state.ready);
   readonly error$: Observable<unknown> = this.select((state) => state.error);
 
   setAnimeList = this.updater((state: AnimeListState, animeList: Anime[]) => ({
     ...state, animeList: animeList || animeListDefaultState.animeList
+  }));
+
+  setReady = this.updater((state: AnimeListState, ready: boolean) => ({
+    ...state, ready: ready || animeListDefaultState.ready
   }));
 
   setError = this.updater((state: AnimeListState, error: unknown) => ({
@@ -44,11 +49,13 @@ export class AnimeListStore extends ComponentStore<AnimeListState> {
       next: (animeList: Anime[]) => {
         this.setError(animeListDefaultState.error);
         this.setAnimeList(animeList);
+        this.setReady(true);
       }
     }),
     catchError((error: unknown) => {
       this.setError(error);
       this.setAnimeList(animeListDefaultState.animeList);
+      this.setReady(true);
 
       return of(error);
     })

@@ -6,5 +6,6 @@ export enum AnimeListActionType {
 
 export const animeListDefaultState = {
   animeList: [],
+  ready: false,
   error: null
 }

@@ -1,6 +1,4 @@
 .anime-list {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  @apply grid gap-5 justify-between justify-items-center items-center;
+  grid-template-columns: repeat(auto-fill, 220px);
 }

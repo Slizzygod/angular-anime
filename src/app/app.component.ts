@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent, FooterComponent, ContentComponent } from './core/components';
@@ -14,6 +14,7 @@ import { HeaderComponent, FooterComponent, ContentComponent } from './core/compo
     FooterComponent,
     ContentComponent
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
 export class AppComponent {  }

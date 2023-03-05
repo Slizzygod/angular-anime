@@ -1,3 +1,7 @@
-<div class="anime-list">
-  <app-anime-card *ngFor="let anime of animeList$ | async" [anime]="anime"></app-anime-card>
-</div>
+<app-spinner *ngIf="!(ready$ | async); else content"></app-spinner>
+
+<ng-template #content>
+  <div class="anime-list">
+    <app-anime-card *ngFor="let anime of animeList$ | async" [anime]="anime"></app-anime-card>
+  </div>
+</ng-template>

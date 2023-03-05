@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { AnimeListComponent } from '@app/pages';
 
@@ -8,6 +8,7 @@ import { AnimeListComponent } from '@app/pages';
   imports: [AnimeListComponent],
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentComponent {
 

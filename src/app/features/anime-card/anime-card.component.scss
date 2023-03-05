@@ -1,35 +1,15 @@
 .anime {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply flex flex-col items-center;
 
   &__image {
-    border-radius: 4px;
-    box-shadow: 0 14px 30px rgba(#fff,.15),0 4px 4px rgba(var(#fff),.05);
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
+    @apply rounded cursor-pointer overflow-hidden relative;
 
     img {
-      width: 220px;
-      height: 320px;
+      @apply w-56 h-80;
     }
   }
 
   &__title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 230px;
-    display: block;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 21px;
-    margin-top: 10px;
-    overflow: hidden;
-    transition: color .2s ease;
+    @apply overflow-hidden whitespace-nowrap text-ellipsis w-56 block text-center cursor-pointer text-base font-semibold leading-5 mt-3 text-gray-400;
   }
 }
