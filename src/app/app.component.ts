@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent, FooterComponent, ContentComponent } from './core';
+import { HeaderComponent, FooterComponent, ContentComponent } from './core/components';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [
-    CommonModule,
     RouterModule,
 
     HeaderComponent,
@@ -18,6 +16,4 @@ import { HeaderComponent, FooterComponent, ContentComponent } from './core';
   ],
   standalone: true
 })
-export class AppComponent {
-  title = 'angular-anime';
-}
+export class AppComponent {  }

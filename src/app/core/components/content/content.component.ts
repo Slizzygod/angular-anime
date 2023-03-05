@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { AnimeListComponent } from '@app/pages';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AnimeListComponent],
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent {
 
